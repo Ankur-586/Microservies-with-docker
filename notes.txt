@@ -1,0 +1,6 @@
+python version: 3.11.4
+
+If (docker desktop requires a newer wsl kernel version) thios error message shows up then do wsl --update 
+
+to run docker:
+docker-compose up
