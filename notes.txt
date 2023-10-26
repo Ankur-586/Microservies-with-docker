@@ -4,3 +4,8 @@ If (docker desktop requires a newer wsl kernel version) thios error message show
 
 to run docker:
 docker-compose up
+to down docker:
+docker-compose down
+to run docker in background:
+docker-compose -d
+
