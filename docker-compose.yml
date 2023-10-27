@@ -1,25 +1,46 @@
-version: '2.23.0' 
+# version: '2.23.0' 
+# services:
+#   backend:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - 8000:8000
+#     volumes:
+#       - .:/app
+#     depends_on:
+#       - db
+    
+#   db:
+#     image: postgres
+#     restart: always
+#     environment:
+#       POSTGRES_DB: micro-with-doc
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: intex123
+#     volumes:
+#       - ./data/db:/var/lib/postgresql/data
+
+version: '3'
 services:
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 8000:8000
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
-
-  depends_on:
-    - db
-    
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      
   db:
-    image: postgres:15.4
-    restart: always
+    image: postgres:latest
     environment:
-      POSTGRES_DATABASE: micro-with-doc
+      POSTGRES_DB: micro-with-doc
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: intex123
     volumes:
-      - .db:/var/lib/postgresql/data
+      - ./data:/var/lib/postgresql/data
     ports:
-      - 54322:5432
+      - "5432:5432"
+

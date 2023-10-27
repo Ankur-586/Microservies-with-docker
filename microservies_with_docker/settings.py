@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^_2m7_qv82$02c7kss!hkc*nq#1ejs+yb9_rld-6p)pg$ds+jh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -82,8 +82,8 @@ DATABASES = {
         'NAME': 'micro-with-doc',
         'USER': 'postgres',
         'PASSWORD': 'intex123',
-        'HOST': 'localhost', #'w3-django-project.cdxmgq9zqqlr.us-east-1.rds.amazonaws.com',
-        'PORT': '5432'
+        'HOST': 'db', 
+        'PORT': '5432',
     }
 }
 

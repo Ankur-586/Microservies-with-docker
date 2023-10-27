@@ -9,3 +9,17 @@ docker-compose down
 to run docker in background:
 docker-compose -d
 
+  depends_on:
+    - db
+    
+  db:
+    image: postgres:15.4
+    restart: always
+    environment:
+      POSTGRES_DATABASE: micro-with-doc
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: intex123
+    volumes:
+      - .db:/var/lib/postgresql/data
+    ports:
+      - 54322:5432
